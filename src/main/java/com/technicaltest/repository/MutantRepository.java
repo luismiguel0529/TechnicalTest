@@ -13,10 +13,10 @@ public interface MutantRepository extends CrudRepository<DnaEntity, Long> {
 
     DnaEntity findByDna(String dna);
 
-    @Query(value = "select count(*) from dnas m where m.is_mutant = true", nativeQuery = true)
+    @Query(value = "select count(*) from dnas m where m.mutant = true", nativeQuery = true)
     Long countAllMutants();
 
-    @Query(value = "select count(*) from dnas m where m.is_mutant = false", nativeQuery = true)
+    @Query(value = "select count(*) from dnas m where m.mutant = false", nativeQuery = true)
     Long countAllHumans();
 
 }

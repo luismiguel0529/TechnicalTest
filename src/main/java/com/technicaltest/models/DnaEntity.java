@@ -23,7 +23,7 @@ public class DnaEntity {
     Long id;
 
     @NotNull
-    @Column(name = "is_mutant")
+    @Column(name = "mutant")
     boolean mutant;
 
     @NotNull
@@ -47,7 +47,7 @@ public class DnaEntity {
         this.id = id;
     }
 
-    public boolean isMutant() {
+    public boolean getMutant() {
         return mutant;
     }
 

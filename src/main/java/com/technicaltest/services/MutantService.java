@@ -35,7 +35,7 @@ public class MutantService implements MutanServiceInterface {
 
         if (dnaDB != null) {
             log.info("Dna found in db");
-            return Optional.ofNullable(dnaDB.isMutant());
+            return Optional.ofNullable(dnaDB.getMutant());
         }
 
         char[][] charArrays = Arrays.stream(dna).map(String::toCharArray).toArray(char[][]::new);
