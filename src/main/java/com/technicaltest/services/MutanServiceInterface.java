@@ -14,7 +14,7 @@ public interface MutanServiceInterface {
 
     Optional<Boolean> isMutan(String[] dna);
 
-    Optional<DnaEntity> findById(String dna);
+    DnaEntity findById(String dna);
 
     void saveDna(String stringDNA, boolean isMutant);
 
