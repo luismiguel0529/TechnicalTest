@@ -1,6 +1,7 @@
 package com.technicaltest.services;
 
 import com.technicaltest.business.MutantBusiness;
+import com.technicaltest.exception.MutantException;
 import com.technicaltest.models.DnaEntity;
 import com.technicaltest.models.StatResponse;
 import com.technicaltest.repository.MutantRepository;
@@ -31,11 +32,11 @@ public class MutantService implements MutanServiceInterface {
     @Override
     public Optional<Boolean> isMutan(String[] dna) {
         String stringDNA = Arrays.stream(dna).map(String::new).collect(Collectors.joining("-"));
-        DnaEntity dnaDB = findById(stringDNA);
+        Optional<DnaEntity> dnaDB = Optional.ofNullable(findById(stringDNA).orElseThrow(MutantException::new));
 
-        if (dnaDB != null) {
+        if (dnaDB.isPresent()) {
             log.info("Dna found in db");
-            return Optional.ofNullable(dnaDB.isMutant());
+            return dnaDB.map(DnaEntity::isMutant);
         }
 
         char[][] charArrays = Arrays.stream(dna).map(String::toCharArray).toArray(char[][]::new);
@@ -45,8 +46,8 @@ public class MutantService implements MutanServiceInterface {
     }
 
     @Override
-    public DnaEntity findById(String dna) {
-        return mutantRepository.findByDna(dna);
+    public Optional<DnaEntity> findById(String dna) {
+        return Optional.ofNullable(mutantRepository.findByDna(dna));
     }
 
     @Override
