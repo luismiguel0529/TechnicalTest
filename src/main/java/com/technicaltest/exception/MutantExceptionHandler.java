@@ -12,6 +12,11 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 import java.time.LocalDateTime;
 
+/**
+ * Exceptions Control
+ *
+ * @author luismiguelrodriguez
+ */
 @ControllerAdvice
 public class MutantExceptionHandler extends ResponseEntityExceptionHandler {
 

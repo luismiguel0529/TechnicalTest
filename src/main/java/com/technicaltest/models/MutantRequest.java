@@ -1,5 +1,10 @@
 package com.technicaltest.models;
 
+/**
+ * Class DTO request
+ *
+ * @author luismiguelrodriguez
+ */
 public class MutantRequest {
 
     private String[] dna;

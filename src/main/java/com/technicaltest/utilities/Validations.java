@@ -10,6 +10,11 @@ import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 
+/**
+ * Class validations dna
+ *
+ * @author luismiguelrodriguez
+ */
 @Component
 public class Validations {
 

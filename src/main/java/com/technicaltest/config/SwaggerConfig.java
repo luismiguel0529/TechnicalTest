@@ -16,27 +16,27 @@ import java.util.Collections;
 @EnableSwagger2
 public class SwaggerConfig {
 
-	@Bean
-	public Docket apiDocket() {
-		return new Docket(DocumentationType.SWAGGER_2)
-				.select()
-				.apis(RequestHandlerSelectors.basePackage("com.technicaltest.controllers"))
-				.paths(PathSelectors.any())
-				.build()
-				.apiInfo(getApiInfo())
-				;
-	}
-	
-	private ApiInfo getApiInfo() {
-		return new ApiInfo(
-				"Challenge Mutant Service",
-				"Challenge Mercado Libre",
-				"",
-				"",
-				new Contact("Luis Miguel Rodriguez Herrera", "", "l.miguel0529@hotmail.com.com"),
-				"",
-				"",
-				Collections.emptyList()
-				);
-	}
+    @Bean
+    public Docket apiDocket() {
+        return new Docket(DocumentationType.SWAGGER_2)
+                .select()
+                .apis(RequestHandlerSelectors.basePackage("com.technicaltest.controllers"))
+                .paths(PathSelectors.any())
+                .build()
+                .apiInfo(getApiInfo())
+                ;
+    }
+
+    private ApiInfo getApiInfo() {
+        return new ApiInfo(
+                "Challenge Mutant Service",
+                "Challenge Mercado Libre",
+                "",
+                "",
+                new Contact("Luis Miguel Rodriguez Herrera", "", "l.miguel0529@hotmail.com.com"),
+                "",
+                "",
+                Collections.emptyList()
+        );
+    }
 }

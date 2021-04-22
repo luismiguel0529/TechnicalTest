@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="7b438246-5c38-4709-9a1a-1e8da6c21fbc" activeEnvironment="Default" name="REST Project 1"
+                    resourceRoot="" soapui-version="5.6.0" xmlns:con="http://eviware.com/soapui/config">
+    <con:settings/>
+    <con:interface xsi:type="con:RestService" id="4130f4ab-1694-472a-b9b3-a73fa45204df"
+                   wadlVersion="http://wadl.dev.java.net/2009/02" name="https://mutantsapi.herokuapp.com" type="rest"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <con:settings/>
+        <con:definitionCache/>
+        <con:endpoints>
+            <con:endpoint>https://mutantsapi.herokuapp.com</con:endpoint>
+        </con:endpoints>
+        <con:resource name="Mutant" path="/mutant" id="ccd5456c-17cb-4b9d-801c-853fce0bd058">
+            <con:settings/>
+            <con:parameters/>
+            <con:method name="Mutant 1" id="f2593422-d0ae-473c-9daa-ca8404f33860" method="POST">
+                <con:settings/>
+                <con:parameters/>
+                <con:representation type="REQUEST">
+                    <con:mediaType>application/json</con:mediaType>
+                    <con:params/>
+                </con:representation>
+                <con:representation type="FAULT">
+                    <con:mediaType xsi:nil="true"/>
+                    <con:status>400</con:status>
+                    <con:params/>
+                    <con:element>data</con:element>
+                </con:representation>
+                <con:representation type="FAULT">
+                    <con:mediaType xsi:nil="true"/>
+                    <con:status>400</con:status>
+                    <con:params/>
+                    <con:element>data</con:element>
+                </con:representation>
+                <con:representation type="FAULT">
+                    <con:mediaType xsi:nil="true"/>
+                    <con:status>400</con:status>
+                    <con:params/>
+                    <con:element>data</con:element>
+                </con:representation>
+                <con:representation type="FAULT">
+                    <con:mediaType xsi:nil="true"/>
+                    <con:status>400</con:status>
+                    <con:params/>
+                    <con:element>data</con:element>
+                </con:representation>
+                <con:representation type="RESPONSE">
+                    <con:mediaType xsi:nil="true"/>
+                    <con:status>200</con:status>
+                    <con:params/>
+                    <con:element>data</con:element>
+                </con:representation>
+                <con:representation type="RESPONSE">
+                    <con:mediaType xsi:nil="true"/>
+                    <con:status>200</con:status>
+                    <con:params/>
+                    <con:element>data</con:element>
+                </con:representation>
+                <con:representation type="FAULT">
+                    <con:mediaType xsi:nil="true"/>
+                    <con:status>403</con:status>
+                    <con:params/>
+                    <con:element>data</con:element>
+                </con:representation>
+                <con:request name="Request 1" id="b1ff023f-0a34-4452-b368-9746f4252237"
+                             mediaType="application/x-www-form-urlencoded" postQueryString="true">
+                    <con:settings>
+                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry
+                            key="Content-Type" value="application/json" xmlns="http://eviware.com/soapui/config"/>
+                        </con:setting>
+                    </con:settings>
+                    <con:endpoint>https://mutantsapi.herokuapp.com</con:endpoint>
+                    <con:request>{"dna":[
+                        "ATGCGA",
+                        "AAGTTC",
+                        "TTATGT",
+                        "AGAAGG",
+                        "TCCCTA",
+                        "TCACTG"]}
+                    </con:request>
+                    <con:originalUri>https://mutantsapi.herokuapp.com/mutant</con:originalUri>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters/>
+                    <con:parameterOrder/>
+                </con:request>
+            </con:method>
+        </con:resource>
+    </con:interface>
+    <con:testSuite id="1dc135c1-a8fc-451b-80f9-1589b4ef1b0b" name="Rendimiento">
+        <con:settings/>
+        <con:runType>SEQUENTIAL</con:runType>
+        <con:testCase id="89cbe71f-8747-4ea7-a9fa-9cff97772aeb" failOnError="true" failTestCaseOnErrors="true"
+                      keepSession="false" maxResults="0" name="performance" searchProperties="true">
+            <con:settings/>
+            <con:testStep type="restrequest" name="REST Request" id="cb08e2f4-0b1d-4d9e-a465-668b20ac7ff9">
+                <con:settings/>
+                <con:config service="https://mutantsapi.herokuapp.com" methodName="Mutant 1" resourcePath="/mutant"
+                            xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <con:restRequest name="REST Request" id="204893ea-1cac-44f2-919c-fd3c469b4f03"
+                                     mediaType="application/json" postQueryString="false">
+                        <con:settings>
+                            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry
+                                key="Content-Type" value="application/json" xmlns="http://eviware.com/soapui/config"/>
+                            </con:setting>
+                        </con:settings>
+                        <con:encoding>UTF-8</con:encoding>
+                        <con:endpoint>https://mutantsapi.herokuapp.com</con:endpoint>
+                        <con:request>{"dna":[
+                            "ATGCGA",
+                            "AAGTGC",
+                            "TTATGT",
+                            "AGAAGG",
+                            "TCCCTA",
+                            "TCACTG"]}
+                        </con:request>
+                        <con:credentials>
+                            <con:authType>No Authorization</con:authType>
+                        </con:credentials>
+                        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                        <con:jmsPropertyConfig/>
+                        <con:parameters/>
+                    </con:restRequest>
+                </con:config>
+            </con:testStep>
+            <con:loadTest id="00ec2014-8fc6-4359-af77-ae71a372e236" name="LoadTest 1">
+                <con:settings>
+                    <con:setting id="HttpSettings@close-connections">false</con:setting>
+                </con:settings>
+                <con:threadCount>9999</con:threadCount>
+                <con:startDelay>0</con:startDelay>
+                <con:sampleInterval>250</con:sampleInterval>
+                <con:calculateTPSOnTimePassed>true</con:calculateTPSOnTimePassed>
+                <con:resetStatisticsOnThreadCountChange>true</con:resetStatisticsOnThreadCountChange>
+                <con:historyLimit>-1</con:historyLimit>
+                <con:testLimit>100</con:testLimit>
+                <con:limitType>TIME</con:limitType>
+                <con:loadStrategy>
+                    <con:type>Simple</con:type>
+                </con:loadStrategy>
+                <con:assertion type="Step Status" name="Step Status"/>
+                <con:maxAssertionErrors>100</con:maxAssertionErrors>
+                <con:cancelExcessiveThreads>true</con:cancelExcessiveThreads>
+                <con:strategyInterval>500</con:strategyInterval>
+            </con:loadTest>
+            <con:properties/>
+        </con:testCase>
+        <con:properties/>
+    </con:testSuite>
+    <con:properties/>
+    <con:wssContainer/>
+    <con:oAuth2ProfileContainer/>
+    <con:oAuth1ProfileContainer/>
+    <con:sensitiveInformation/>
+</con:soapui-project>

@@ -8,6 +8,11 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+/**
+ * Entity for persistence
+ *
+ * @author luismiguelrodriguez
+ */
 @Entity
 @Table(name = "dnas")
 public class DnaEntity {
@@ -18,7 +23,7 @@ public class DnaEntity {
     Long id;
 
     @NotNull
-    @Column(name = "is_mutant")
+    @Column(name = "mutant")
     boolean mutant;
 
     @NotNull
