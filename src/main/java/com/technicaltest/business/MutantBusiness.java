@@ -21,8 +21,13 @@ public class MutantBusiness {
                 rowValidation(k, dna);
             }
         }
+        if (sequences <= 1){
+            diagonalsAbove(dna);
+        }
+        if (sequences <= 1){
+            diagonalsUnder(dna);
+        }
         if (sequences <= 1) {
-            //diagonalsRightToLeftValidation(dna);
             diagonalsLeftToRightValidation(dna);
         }
         return sequences;
@@ -42,7 +47,6 @@ public class MutantBusiness {
                 if (Character.toLowerCase(dna[i][column]) == Character.toLowerCase(dna[j][column])) {
                     equalLetters++;
                 } else {
-                    equalLetters = 0;
                     break;
                 }
                 if (equalLetters >= MINIMUM_SIZE_MUTANT) {
@@ -68,12 +72,10 @@ public class MutantBusiness {
                 if (Character.toLowerCase(dna[row][i]) == Character.toLowerCase(dna[row][j])) {
                     equalLetters++;
                 } else {
-                    equalLetters = 0;
                     break;
                 }
                 if (equalLetters >= MINIMUM_SIZE_MUTANT) {
                     this.sequences++;
-
                     equalLetters = 0;
                 }
             }
@@ -81,44 +83,32 @@ public class MutantBusiness {
         }
     }
 
-    private void diagonalsRightToLeftValidation(char[][] dna) {
-
-
-/*		for (int i = 1 - dna.length; i <= dna.length; i++) {
-			StringBuilder diagonal = new StringBuilder();
-			for (int x = -Math.min(0, i), y = Math.max(0, i); x < dna.length && y < dna.length; x++, y++) {
-
-
-				diagonal.append(dna[x][y]);
-			}
-
-			validateRow(diagonal.toString());
-
-		}*/
+    private void diagonalsAbove(char[][] dna) {
         int k = 0;
         for (int j = dna.length - 2; j >= MINIMUM_SIZE_MUTANT - 1; j--) {
-            StringBuilder diagonal = new StringBuilder();
+            StringBuilder diagonalAbove = new StringBuilder();
             int l = j;
             for (int i = 0; i <= dna.length - 2 - k; i++) {
-                diagonal.append(dna[i][l]);
+                diagonalAbove.append(dna[i][l]);
                 l--;
             }
-            validateRow(diagonal.toString());
+            validateRow(diagonalAbove.toString());
             k++;
         }
+    }
 
-        int limitSize = dna.length - MINIMUM_SIZE_MUTANT;
+    private void diagonalsUnder(char[][] dna) {
+        int size = dna.length - MINIMUM_SIZE_MUTANT;
 
-        for (int i = 0; i <= limitSize; i++) {
-            StringBuilder diagonal = new StringBuilder();
+        for (int i = 0; i <= size; i++) {
+            StringBuilder diagonalUnder = new StringBuilder();
             int l = i;
             for (int j = dna.length - 1; j >= 0 + i; j--) {
-                diagonal.append(dna[l][j]);
+                diagonalUnder.append(dna[l][j]);
                 l++;
             }
-            validateRow(diagonal.toString());
+            validateRow(diagonalUnder.toString());
         }
-
     }
 
     /**
@@ -150,7 +140,6 @@ public class MutantBusiness {
                 if (Character.toLowerCase(row.charAt(i)) == Character.toLowerCase(row.charAt(j))) {
                     equalLetters++;
                 } else {
-                    equalLetters = 0;
                     break;
                 }
                 if (equalLetters >= MINIMUM_SIZE_MUTANT) {

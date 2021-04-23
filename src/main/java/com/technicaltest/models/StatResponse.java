@@ -17,6 +17,9 @@ public class StatResponse {
 
     private double ratio;
 
+    public StatResponse() {
+    }
+
     public StatResponse(double countMutant, double countHuman, double ratio) {
         this.countMutant = countMutant;
         this.countHuman = countHuman;

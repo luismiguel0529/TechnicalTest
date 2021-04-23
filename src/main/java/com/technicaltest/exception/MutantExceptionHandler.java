@@ -28,8 +28,8 @@ public class MutantExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ResponseBody
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    @ExceptionHandler(MutanValidationException.class)
-    public Message handleMutantValidationException(MutanValidationException ex) {
+    @ExceptionHandler({MutantValidationException.class})
+    public Message handleMutantValidationException(MutantValidationException ex) {
         return new Message(LocalDateTime.now(), ex.getMessage(), HttpStatus.BAD_REQUEST.value());
     }
 }
